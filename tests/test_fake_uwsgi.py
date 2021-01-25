@@ -19,3 +19,10 @@ def test_global_variables():
     assert fake_uwsgi.numproc == 4
 
     assert fake_uwsgi.LOGVAR == dict()
+
+
+def test_log(capfd):
+    """Test the log function of fake_uwsgi"""
+    fake_uwsgi.log("This is a test string being printed.")
+    out = capfd.readouterr()[0]
+    assert out == "This is a test string being printed.\n"

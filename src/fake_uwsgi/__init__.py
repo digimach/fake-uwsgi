@@ -37,4 +37,12 @@ def setup_fake_uwsgi():
     LOGVAR = dict()
     IMPORT_TIME = time.time()
 
+
+def log(*args, **kwargs):
+    """A wrapper that invokes the built-in print function with the args and kwargs
+    passed to this function.
+    """
+    print(*args, **kwargs)
+
+
 setup_fake_uwsgi()

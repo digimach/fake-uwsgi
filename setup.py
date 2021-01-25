@@ -15,7 +15,6 @@ with open("src/fake_uwsgi/__init__.py", encoding="utf8") as fp:
 
 extra_requires = {
     "dev": ["pre-commit"],
-    "docs": ["safety", "sphinx"],
     "lint": ["black", "flake8", "pylint", "yamllint"],
     "test": ["coverage", "pytest", "pytest-cov", "pytest-xdist", "safety"],
 }

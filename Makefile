@@ -11,7 +11,7 @@ clean :
 setup-dev :
 	tox --develop --workdir .tox -e py
 	.tox/py/bin/pre-commit install
-	.tox/py/bin/python setup.py develop
+#	.tox/py/bin/python setup.py develop
 # -------------------
 
 # Test rules
@@ -20,8 +20,8 @@ pytest :
 	pytest -vvvv \
            --strict-markers \
            --basetemp=./.pytest_tmp/ \
-           --cov src \
-           --cov tests \
+           --cov tests/ \
+           --cov fake_uwsgi \
            --no-cov-on-fail \
            --cov-fail-under 100
 		   $(PYTEST_FLAGS)
