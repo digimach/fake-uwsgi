@@ -17,7 +17,7 @@ setup-dev :
 # Test rules
 .PHONY: pytest
 pytest :
-	pytest -vvvv --strict-markers --basetemp=./.pytest_tmp/ --numprocesses=auto $(PYTEST_FLAGS)
+	pytest -vvvv --strict-markers --basetemp=./.pytest_tmp/ --cov src --cov tests $(PYTEST_FLAGS)
 
 .PHONY: safety
 safety :
@@ -49,39 +49,3 @@ black_check :
 black :
 	black --verbose .
 # -------------------
-
-# Documentation Testing rules
-.PHONY: doc_test
-doc_test : doc_dry_run_test doc_link_check
-
-.PHONY: doc_dry_run_test
-doc_dry_run_test :
-	make --directory=./docs SPHINXOPTS="-W -n --keep-going" html
-
-.PHONY: doc_link_check
-doc_link_check :
-	make --directory=./docs linkcheck
-# -------------------
-
-# Documentation build rules
-.PHONY: docs
-docs :
-	make --directory=./docs html
-# -------------------
-
-# Debug report rules
-.PHONY: debug-report
-debug-report :
-	@echo "|*****************|"
-	-which python
-	@echo "|*****************|"
-	-which pip
-	@echo "|*****************|"
-	-python --version
-	@echo "|*****************|"
-	-pip freeze
-	@echo "|*****************|"
-	-git status
-	@echo "|*****************|"
-	-git log -1
-	@echo "|*****************|"
