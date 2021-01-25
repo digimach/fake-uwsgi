@@ -17,7 +17,14 @@ setup-dev :
 # Test rules
 .PHONY: pytest
 pytest :
-	pytest -vvvv --strict-markers --basetemp=./.pytest_tmp/ --cov src --cov tests $(PYTEST_FLAGS)
+	pytest -vvvv \
+           --strict-markers \
+           --basetemp=./.pytest_tmp/ \
+           --cov src \
+           --cov tests \
+           --no-cov-on-fail \
+           --cov-fail-under 100
+		   $(PYTEST_FLAGS)
 
 .PHONY: safety
 safety :
