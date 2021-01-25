@@ -26,3 +26,29 @@ def test_log(capfd):
     fake_uwsgi.log("This is a test string being printed.")
     out = capfd.readouterr()[0]
     assert out == "This is a test string being printed.\n"
+
+
+def test_log_var():
+    """Test the set and get log variable functions."""
+
+    # When the key is not set, get_logvar should return None
+    assert "test" not in fake_uwsgi.LOGVAR
+    assert fake_uwsgi.get_logvar("test") is None
+
+    # Set the value and get it
+    fake_uwsgi.set_logvar("test", "yahoo")
+    assert fake_uwsgi.get_logvar("test") == "yahoo"
+
+    # Providing the key only should set the value to None
+    fake_uwsgi.set_logvar("test")
+    assert fake_uwsgi.get_logvar("test") is None
+
+    # Add the same key with a different value
+    fake_uwsgi.set_logvar(test="montreal")
+    assert fake_uwsgi.get_logvar("test") == "montreal"
+
+    # Add multiple keys and update an existing one
+    fake_uwsgi.set_logvar(test="ottawa", another_test="toronto")
+
+    assert fake_uwsgi.get_logvar("test") == "ottawa"
+    assert fake_uwsgi.get_logvar("another_test") == "toronto"
