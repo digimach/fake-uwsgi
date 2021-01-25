@@ -78,4 +78,13 @@ def get_logvar(key):
     return LOGVAR.get(key, None)
 
 
+def worker_id():
+    """Return a predefined worker ID.
+
+    Returns:
+        int: The static work id
+    """
+    return 123
+
+
 setup_fake_uwsgi()
