@@ -45,4 +45,37 @@ def log(*args, **kwargs):
     print(*args, **kwargs)
 
 
+def set_logvar(*args, **kwargs):
+    """Set the log variables.
+    If a single argument is passed it will use that as the key and set the value to
+    None.
+    If two arguments are passed, example set_logvar("key", "value") it will set the key
+    (first argument) to the value (second argument)
+    If kwargs are provided it will update the log variable dictionary.
+    """
+    global LOGVAR  # pylint: disable=global-statement
+
+    if len(args) == 1:
+        key = args[0]
+        LOGVAR[key] = None
+    elif len(args) == 2:
+        key = args[0]
+        val = args[1]
+        LOGVAR[key] = val
+    elif len(kwargs.keys()) != 0:
+        LOGVAR.update(kwargs)
+
+
+def get_logvar(key):
+    """Get the log variable given the key.
+
+    Args:
+        key (*): The key for which the value is required
+
+    Returns:
+        *: Returns the value in the type it was set. None if its not set.
+    """
+    return LOGVAR.get(key, None)
+
+
 setup_fake_uwsgi()
