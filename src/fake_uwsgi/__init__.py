@@ -87,4 +87,72 @@ def worker_id():
     return 123
 
 
+def workers():
+    """Return a generated list of worker data.
+
+    Returns:
+        list: The worker data
+    """
+    global IMPORT_TIME  # pylint: disable=global-statement
+    return [
+        {
+            "apps": [
+                {
+                    "id": 0,
+                    "modifier1": 0,
+                    "mountpoint": "/",
+                    "startup_time": 0,
+                    "interpreter": 36657355585954,
+                    "callable": 427548492337761,
+                    "requests": 0,
+                    "exceptions": 0,
+                    "chdir": "",
+                }
+            ],
+            "avg_rt": 0,
+            "delta_requests": 0,
+            "exceptions": 0,
+            "id": worker_id(),
+            "last_spawn": IMPORT_TIME,
+            "pid": 42744,
+            "requests": total_requests() / 2,
+            "respawn_count": 0,
+            "rss": 0,
+            "running_time": time.time() - IMPORT_TIME,
+            "signals": 0,
+            "status": "idle",
+            "tx": 0,
+            "vsz": 0,
+        },
+        {
+            "apps": [
+                {
+                    "id": 0,
+                    "modifier1": 0,
+                    "mountpoint": "/",
+                    "startup_time": 0,
+                    "interpreter": 95994467934864,
+                    "callable": 684895773596472,
+                    "requests": 0,
+                    "exceptions": 0,
+                    "chdir": "",
+                }
+            ],
+            "avg_rt": 0,
+            "delta_requests": 0,
+            "exceptions": 0,
+            "id": worker_id(),
+            "last_spawn": IMPORT_TIME + 1,
+            "pid": 42745,
+            "requests": total_requests() / 2,
+            "respawn_count": 0,
+            "rss": 0,
+            "running_time": time.time() - IMPORT_TIME + 1,
+            "signals": 0,
+            "status": "busy",
+            "tx": 0,
+            "vsz": 0,
+        },
+    ]
+
 setup_fake_uwsgi()
