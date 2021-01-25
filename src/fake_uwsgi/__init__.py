@@ -34,7 +34,7 @@ def setup_fake_uwsgi():
 
     numproc = 4
 
-    LOGVAR = dict()
+    LOGVAR = {}
     IMPORT_TIME = time.time()
 
 
