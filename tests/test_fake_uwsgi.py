@@ -57,3 +57,17 @@ def test_log_var():
 def test_worker_id():
     """Test the worker_id function in fake_uwsgi"""
     assert fake_uwsgi.worker_id() == 123
+
+
+def test_workers():
+    """Test the workers function in fake_uwsgi"""
+    assert isinstance(fake_uwsgi.workers(), list)
+
+    # Each element of the list should be a dict
+    for item in fake_uwsgi.workers():
+        assert isinstance(item, dict)
+
+
+def test_total_requests():
+    """Test the total_requests function in fake_uwsgi"""
+    assert fake_uwsgi.total_requests() == 564
