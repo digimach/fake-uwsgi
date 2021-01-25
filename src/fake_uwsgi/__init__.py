@@ -14,7 +14,7 @@ except ImportError:
 import os
 import time
 
-__version__ = "0.1.0"
+__version__ = "1.1.0"
 
 opt = numproc = LOGVAR = IMPORT_TIME = None  # pylint: disable=invalid-name
 
