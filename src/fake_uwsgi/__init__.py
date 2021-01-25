@@ -155,4 +155,14 @@ def workers():
         },
     ]
 
+
+def total_requests():
+    """Return a predefined value of total requests
+
+    Returns:
+        int: The number of total requests processed. This is not a realistic value.
+    """
+    return 564
+
+
 setup_fake_uwsgi()
