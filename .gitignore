@@ -1,0 +1,27 @@
+# Tox environment directory
+/.tox/
+
+# Distribution / packaging
+*.egg-info/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Pytest files and directories
+/.pytest_tmp/
+/.pytest_cache/
+
+# IDE files and directories
+/.vscode/
+/.vs/
+
+# Cookiecutter baking directory
+/.baked/
+
+# Docs build directory
+/docs/_build/
+
+# Coverage directory
+/.coverage

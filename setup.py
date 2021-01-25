@@ -10,19 +10,19 @@ import re
 
 from setuptools import setup
 
-with open("src/fake-uwsgi/__init__.py", encoding="utf8") as fp:
+with open("src/fake_uwsgi/__init__.py", encoding="utf8") as fp:
     version = re.search(r'__version__ = "(.*?)"', fp.read()).group(1)
 
 extra_requires = {
-    "dev": ['pre-commit'],
+    "dev": ["pre-commit"],
     "docs": ["safety", "sphinx"],
-    "lint": ['black', 'flake8', 'pylint', 'yamllint'],
-    "test": ['coverage', 'pytest', 'pytest-cov', 'pytest-xdist', 'safety'],
+    "lint": ["black", "flake8", "pylint", "yamllint"],
+    "test": ["coverage", "pytest", "pytest-cov", "pytest-xdist", "safety"],
 }
 
 setup(
     version=version,
-    install_requires=[''],
+    install_requires=[""],
     extras_require=extra_requires,
     zip_safe=False,
     platforms="any",
