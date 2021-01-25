@@ -18,7 +18,7 @@ def test_global_variables():
 
     assert fake_uwsgi.numproc == 4
 
-    assert fake_uwsgi.LOGVAR == dict()
+    assert fake_uwsgi.LOGVAR == {}
 
 
 def test_log(capfd):
