@@ -42,4 +42,3 @@ Quickstart
 
 ..
     GARNISH: Add quickstart information
-
