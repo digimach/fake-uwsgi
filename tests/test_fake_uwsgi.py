@@ -52,3 +52,8 @@ def test_log_var():
 
     assert fake_uwsgi.get_logvar("test") == "ottawa"
     assert fake_uwsgi.get_logvar("another_test") == "toronto"
+
+
+def test_worker_id():
+    """Test the worker_id function in fake_uwsgi"""
+    assert fake_uwsgi.worker_id() == 123
