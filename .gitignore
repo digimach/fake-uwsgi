@@ -23,5 +23,6 @@ __pycache__/
 # Docs build directory
 /docs/_build/
 
-# Coverage directory
+# Coverage directory and files
 /.coverage
+/coverage_reports/
