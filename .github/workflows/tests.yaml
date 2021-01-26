@@ -8,7 +8,7 @@ on:  # yamllint disable-line rule:truthy
         branches: [master]
 
 jobs:
-    cookie:
+    tox:
         runs-on: ubuntu-latest
         steps:
             - name: Checkout
@@ -19,12 +19,16 @@ jobs:
               with:
                   tox_env: ${{ matrix.tox_env }}
               if: ${{ always() }}
-            - name: Coveralls Parallel
-              uses: coverallsapp/github-action@master
+            - name: Upload coverage to Codecov
+              uses: codecov/codecov-action@v1
               with:
-                  github-token: ${{ secrets.github_token }}
-                  flag-name: run-${{ matrix.tox_env }}
-              parallel: true
+                  token: ${{ secrets.CODECOV_TOKEN }}
+                  directory: ./coverage_reports/
+                  flags: unittests
+                  env_vars: OS,PYTHON
+                  name: codecov-umbrella
+                  fail_ci_if_error: true
+                  verbose: false
         strategy:
             matrix:
                 tox_env: [py36, py37, py38, py39]

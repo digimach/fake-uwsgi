@@ -23,7 +23,8 @@ pytest :
            --cov tests/ \
            --cov fake_uwsgi \
            --no-cov-on-fail \
-           --cov-fail-under 100
+           --cov-fail-under 100 \
+		   --cov-report=xml:coverage_reports/coverage.xml \
 		   $(PYTEST_FLAGS)
 
 .PHONY: safety
