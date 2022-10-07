@@ -33,6 +33,8 @@ safety :
 
 .PHONY: test
 test : pytest lint
+	which python
+	python --version
 # -------------------
 
 # Lint Check rules
@@ -57,3 +59,9 @@ black_check :
 black :
 	black --verbose .
 # -------------------
+
+# Deploy rules
+.PHONY: deploy
+deploy : setup-dev
+	python setup.py sdist
+	twine upload dist/*
