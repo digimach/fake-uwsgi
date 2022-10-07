@@ -33,7 +33,6 @@ safety :
 
 .PHONY: test
 test : pytest lint
-	which python
 	python --version
 # -------------------
 
