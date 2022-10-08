@@ -21,7 +21,8 @@ opt = numproc = LOGVAR = IMPORT_TIME = None  # pylint: disable=invalid-name
 
 def setup_fake_uwsgi():
     """
-    Setup the fake uWSGI. This function is called upon import by the module itself.
+    Setup the fake uWSGI.
+    This function is called upon import by the module itself.
     """
     global opt  # pylint: disable=invalid-name,global-statement
     global numproc  # pylint: disable=invalid-name,global-statement
@@ -53,7 +54,7 @@ def set_logvar(*args, **kwargs):
     (first argument) to the value (second argument)
     If kwargs are provided it will update the log variable dictionary.
     """
-    global LOGVAR  # pylint: disable=global-statement
+    global LOGVAR  # pylint: disable=global-statement,global-variable-not-assigned
 
     if len(args) == 1:
         key = args[0]
@@ -88,12 +89,13 @@ def worker_id():
 
 
 def workers():
-    """Return a generated list of worker data.
+    """
+    Return a generated list of worker data.
 
     Returns:
         list: The worker data
     """
-    global IMPORT_TIME  # pylint: disable=global-statement
+    global IMPORT_TIME  # pylint: disable=global-statement,global-variable-not-assigned
     return [
         {
             "apps": [
