@@ -20,7 +20,10 @@ opt = numproc = LOGVAR = IMPORT_TIME = None  # pylint: disable=invalid-name
 
 
 def setup_fake_uwsgi():
-    """Setup the fake uWSGI. This function is called upon import by the module itself."""
+    """
+    Setup the fake uWSGI.
+    This function is called upon import by the module itself.
+    """
     global opt  # pylint: disable=invalid-name,global-statement
     global numproc  # pylint: disable=invalid-name,global-statement
     global LOGVAR  # pylint: disable=global-statement
@@ -86,7 +89,8 @@ def worker_id():
 
 
 def workers():
-    """Return a generated list of worker data.
+    """
+    Return a generated list of worker data.
 
     Returns:
         list: The worker data
