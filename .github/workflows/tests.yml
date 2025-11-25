@@ -15,7 +15,7 @@ jobs:
               uses: actions/checkout@v2
               if: ${{ always() }}
             - name: Run tox based tests
-              uses: fedora-python/tox-github-action@v0.4
+              uses: fedora-python/tox-github-action@v42.0
               with:
                   tox_env: ${{ matrix.tox_env }}
               if: ${{ always() }}
