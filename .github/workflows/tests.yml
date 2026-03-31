@@ -20,7 +20,7 @@ jobs:
                   tox_env: ${{ matrix.tox_env }}
               if: ${{ always() }}
             - name: Upload coverage to Codecov
-              uses: codecov/codecov-action@v1
+              uses: codecov/codecov-action@v6
               with:
                   token: ${{ secrets.CODECOV_TOKEN }}
                   directory: ./coverage_reports/
