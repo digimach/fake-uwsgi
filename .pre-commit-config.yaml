@@ -1,7 +1,7 @@
 ---
 repos:
     - repo: https://github.com/pre-commit/pre-commit-hooks
-      rev: v4.5.0
+      rev: v6.0.0
       hooks:
           - id: check-ast
             exclude: \{\{cookiecutter.project_slug\}\}
@@ -26,12 +26,12 @@ repos:
           - id: trailing-whitespace
 
     - repo: https://github.com/codespell-project/codespell
-      rev: v2.2.6
+      rev: v2.4.3
       hooks:
           - id: codespell
 
     - repo: https://github.com/adrienverge/yamllint.git
-      rev: v1.35.1
+      rev: v1.38.0
       hooks:
           - id: yamllint
             args: [--format, parsable, --strict]
@@ -42,13 +42,13 @@ repos:
           - id: yamlfmt
 
     - repo: https://github.com/rstcheck/rstcheck
-      rev: v6.2.0
+      rev: v6.3.0
       hooks:
           - id: rstcheck
             exclude: /?docs/
 
     - repo: https://github.com/Lucas-C/pre-commit-hooks
-      rev: v1.5.5
+      rev: v1.5.6
       hooks:
           - id: forbid-tabs
             exclude: (Makefile|make\.bat)
